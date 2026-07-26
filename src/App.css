@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #121014;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+::-webkit-scrollbar { height: 6px; width: 6px; }
+::-webkit-scrollbar-thumb { background: #29262E; border-radius: 3px; }
+
+.app { min-height: 100vh; background: #121014; }
+
+.key-error {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #F2EFEA;
+  text-align: center;
+  padding: 20px;
+}
+.key-error code {
+  background: #1B1920;
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: #E3A857;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(18, 16, 20, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #221F26;
+}
+.header__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: #F2EFEA;
+}
+.header__search {
+  flex: 1;
+  min-width: 180px;
+  position: relative;
+}
+.header__search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #948E86;
+}
+.header__search input {
+  width: 100%;
+  padding: 9px 12px 9px 34px;
+  border-radius: 20px;
+  border: 1px solid #29262E;
+  background: #1B1920;
+  color: #F2EFEA;
+  font-size: 13.5px;
+  outline: none;
+}
+.header__search input::placeholder { color: #6b6560; }
+.header__nav { display: flex; gap: 4px; }
+.nav-btn {
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: none;
+  background: transparent;
+  color: #F2EFEA;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-btn--active { background: #29262E; }
+
+/* Main / rows */
+.main { max-width: 1100px; margin: 0 auto; padding: 26px 20px 60px; }
+.row { margin-bottom: 30px; }
+.row__title {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  font-size: 22px;
+  color: #F2EFEA;
+  margin: 0 0 10px 2px;
+  font-weight: 400;
+}
+.row__track { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 6px; }
+.row__error {
+  color: #c47a7a;
+  font-size: 13px;
+  margin: 0 0 10px 2px;
+}
+.row__skeleton {
+  width: 160px;
+  aspect-ratio: 2 / 3;
+  background: #1B1920;
+  border-radius: 3px;
+  flex: 0 0 auto;
+}
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  color: #F2EFEA;
+  letter-spacing: 1px;
+  margin: 0 0 16px 2px;
+  font-weight: 400;
+}
+.empty-msg { color: #948E86; font-size: 14px; }
+.grid { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* Poster */
+.poster { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; }
+.poster--empty {
+  background: #221F26;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  color: #948E86;
+}
+.poster--empty span { font-size: 11px; text-align: center; padding: 0 10px; }
+
+/* Movie card */
+.movie-card {
+  position: relative;
+  cursor: pointer;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #1B1920;
+  border: 1px solid #29262E;
+  transition: transform 160ms ease, border-color 160ms ease;
+  flex: 0 0 auto;
+  width: 160px;
+}
+.movie-card:hover { transform: translateY(-4px); border-color: #E3A857; }
+.movie-card__meta { padding: 8px 8px 10px; }
+.movie-card__title {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #F2EFEA;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.movie-card__year { font-size: 11px; color: #948E86; margin-top: 2px; }
+
+.watchlist-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(18, 16, 20, 0.75);
+  color: #F2EFEA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.watchlist-btn--active { background: #E3A857; color: #121014; }
+
+/* Drawer */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 7, 9, 0.7);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 50;
+}
+.drawer {
+  width: min(480px, 92vw);
+  height: 100%;
+  background: #17151A;
+  overflow-y: auto;
+  border-left: 1px solid #29262E;
+  position: relative;
+}
+.drawer__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(18, 16, 20, 0.8);
+  color: #F2EFEA;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.drawer__loading { padding: 60px; display: flex; justify-content: center; }
+.drawer__error { padding: 30px; color: #c47a7a; }
+.drawer__body { padding: 20px 22px 32px; }
+.drawer__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 34px;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  margin: 0 0 6px;
+  color: #F2EFEA;
+}
+.drawer__subline {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #948E86;
+  font-size: 13px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.drawer__rating { display: flex; align-items: center; gap: 4px; color: #E3A857; }
+.drawer__plot { font-size: 14px; line-height: 1.6; color: #D8D3CC; margin-bottom: 20px; }
+.drawer__facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  row-gap: 8px;
+  column-gap: 14px;
+  font-size: 13px;
+  color: #F2EFEA;
+}
+.drawer__facts span:nth-child(odd) { color: #948E86; }
+
+.watchlist-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 3px;
+  border: 1px solid #E3A857;
+  background: transparent;
+  color: #E3A857;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 22px;
+}
+.watchlist-toggle--active { background: #E3A857; color: #121014; }
+
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
